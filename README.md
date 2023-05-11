@@ -56,7 +56,7 @@
 -React components are required to begin with an uppercase.
 
 #### Use a Component with JSX 
-- SX lets you define your own tags. A JSX tag can not only represent an HTML element (like <h1>, <span>, and <header>), but it can also represent a user-defined component. They must be capitlaied. 
+- SX lets you define your own tags. A JSX tag can not only represent an HTML element (like `<h1>`, `<span>`, and `<header>`), but it can also represent a user-defined component. They must be capitlaied. 
 
 -Remeber a component's JSX tag is also a fuctiion call to `createElement` under the hood.
 
