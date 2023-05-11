@@ -6,21 +6,53 @@
  * <h1 id="main-title" title="This is a title">My First React Element!</h1>
  */ }
  
+function Header(props) {
 
-const desc = 'I just learned how to create a react node and render it into the dom'
+    return(
+        <header>
+            <h1>{ props.title }</h1>
+            <span className="stats">Players:{ props.totalPlayers }</span>
+        </header>
+    );
+}
 
-const headerID= 'main-title';
 
-const name = 'Scoffie';
+const Player = () => {
 
-const header = (
-    <header>
-         <h1 id ={ headerID }>{ name }'s First React Element</h1>
-         <p className="main-desc"> { desc  }</p> 
-    </header>
-);
+    return (
+        <div className = "player">
+            <span className="player-name">
+                Scoffie
+            </span>
 
+            <Counter />
+        </div>
+    )
+}
+
+
+const Counter = () =>{
+
+    return (
+        <div className="counter">
+        <button className= "counter-action decrement"> - </button>
+        <span className="counter-score">35</span>
+        <button className= "counter-action increment"> + </button>
+    </div>
+    );
+}
+
+
+const App = () =>{
+    return (
+        <div className="scoreboard">
+            <Header title="ScoreBoard" totalPlayers ={1} />
+            {/*Player's List*/}
+            <Player />
+        </div>
+    );
+} 
 ReactDOM.render(
-    header,
+    <App />,
     document.getElementById('root')
 )
