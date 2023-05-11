@@ -129,4 +129,83 @@ component.
 - Pass a key prop any time you are passing elements by iterating over an Array that will be rearranged.
 
 
-###
+### What is State?
+
+- State is used to store informaion about a component that can change 
+over time.
+- Data gets handled in REACT with 2 ways, props and state. A component can only read 
+data give to it and never change, thus  immutable. 
+- Now state comes in when we want to make out data to dynamically change.
+- State is a regular JS object with properties that define  the pieces of data that change. 
+- Keeps UI in sync  with data. State is only avalaible to components that are class components. Thus we convert our functions to classes.
+
+
+#### Create a Component as a Class 
+`extends` keyword is used to create a sub class. Or a child of another class .
+ - When to use a class vs A function? 
+    - If a component is only receiving input through props and rendering UI,it's best to use a function or a stateless fuctional component.
+    
+
+#### Create A stateful component 
+- Define an initial state first
+- In a class super() {/*Calls the constructor of the React.componet*/}
+
+**Modifying State From Inside a Component**
+
+1. Handling Events 
+To make the Counter component interactive, we need to be able to trigger changes to the data in state. We'll first create an event handler that updates state, using React's built-in `setState()` method. Then we'll give the buttons an onClick event that calls the event handler when clicked. 
+
+- create event handlers as a method of the class. Create a method and pass it as a JSX parammter to the `onClick` React event. We omit the parenthesis because, if they were there the method would be run immedialty the App mounts and we dont want that.
+
+
+#### Updating State 
+In React, state is never modified directly. The only way React allows you to update a component's state is by using its built-in `setState()` method.
+- The parameter passed is an object contains the part of the state you want to modify and the vlue you want to update it to.
+
+
+#### Binding Event Handlers to Components
+- To solve the bug **Uncaught TypeError: Cannot read properties of undefined (reading 'setState')**.
+-The bug presents as a result of referencing `this.setState()` inside the increment score method and its undefined inside the method. In objects/ classes the keyword `this` refers to the Parent Class. 
+- When you create a Class Compinent that extends from another Component, any methods you create inside the class are not bound to the created component by default, therefore we lose our binding to the component. 
+- Each counter component that gets mounted into the DOM is an instance of the counter class, so inside the `render()` method `this` refers to Counter Component instance.
+- So we use the `bind()` method on the incrementscore method and pass it the context via `this`. 
+- We can also use an arrow function, Arrow functions are automatically bound to the scope in which they are defined.
+
+
+#### Update State Based on Previous State  
+
+- Whenever you need to update state based on the previous state, you shouldn't rely on this.state to calculate the next state. State updates may be asynchronous, so it may not always lead to the component re-rendering with new data, and could cause state inconsistency. setState() accepts a callback function that produces state based on the previous state in a more reliable way. 
+
+- Callback func  `prevstate` is guarenteed to fire after the update is done and  is rendered to the DOM. This is done to make UI seamless , if you are not relying on previous state, then you can use the set state method as it was.
+
+
+### Creating the Application State 
+- How to remove players from state: 
+    - Initialize a player state in the APP component.
+    - Create and Wire Up an event handler that removes a player on click.
+
+- Since the APP component is responsible for rendering the player component, its going to own and maintain a player state.
+- That state will then be passed down and made availle to the player component as well as all children on App via props. 
+- Remember state is an object that stores all the data that the component itself needs and data that might get passed down to its children.
+*Steps:*
+1. Make APP comp. a stateful component by converting it from func. to class 
+2. 
+
+** Two Types of State when building a REACT app** 
+- Application State -> data availabke to the entire application.
+
+- Component State -> state that is specific to a component and not shared outside of the
+    component.
+
+
+### Removing Items from State 
+- `filter()` return player list updated without affecting original player list. Filter method takes list and give back a list where the condition `p.id` is not strictly equal to `id`. 
+
+- If a player component is a child of App, it will have access to the state fuction writtern through use of props. We hence give the player component a new prop that will inturn be used by the main App component. 
+
+- The player componenet through the prop `removePlayer` its given by the parent App component has access  to both the function  and state defined in the parent App component.
+
+- So, player is now able to send data back to its parent App component through the call back function that's being passed to it through props.
+- Inside the Player component a delete button is going to trigger the change in the player state. 
+
+- In the stateless function Player component we handle the event onClick for removing the players by passing an arrow function that returns a call to the function passed through props from the parent App component with `props.removePlayer()`, pass id to the function so that it know which player to remove on click. The id is also passed as a prop.
