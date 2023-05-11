@@ -100,3 +100,33 @@
 
 -When u define a component using a function, the function gets 1 default argument from REACT. A props object containing a list of props given to the component.
 
+
+-An important detail to remember about props is that they are "read-only" (or immutable), which means that a component can only read the props given to it, and never change them. The (parent) component higher in the tree owns and controls the property values.
+
+
+
+### Use Props to Create Reusable Components
+- What react components use to talk to each other and share infomarion. Props pass data from a parent component down to a child
+component. 
+
+- Since Player is the parent of counter, its going to define the props for both a player's name and score.
+- Independent, reusable components concept. 
+- Components help us deal with the issue of sepration of concerns, i.e each component in the UI should be responsible for only one thing, and shouldn.t contain extra code that handles other things.
+
+- For example, the *Counter* component is only responsible for displaying a score which you can increase and decrease. 
+
+
+### Iterating and Rendering with map()
+- Iterating over data to produce a list of elements. 
+
+- Pass players array as props to the main component.
+
+
+### USING KEYS TO KEEP TRACK OF ELEMENTS
+
+- A key is a unique identifier that give React a way to quickly and reliably identify and element in the list.
+- Use a unique Id that you can use for key values. lets say if you are getting data from an API.
+- Pass a key prop any time you are passing elements by iterating over an Array that will be rearranged.
+
+
+###
