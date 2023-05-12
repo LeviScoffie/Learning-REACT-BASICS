@@ -72,7 +72,6 @@ class Counter extends React.Component {
     } 
 }
 
-
 class App extends React.Component {
 
     state = {
