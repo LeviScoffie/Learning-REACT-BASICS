@@ -236,5 +236,10 @@ In React, state is never modified directly. The only way React allows you to upd
 - A component is a function or class that accepts inputs that renders part of your UI.
 - Run `create-react app`.Developers often use Create React App for developing React applications because it lets you quickly create and run React apps with no configuration. Create React App is well-suited for projects of any size and is often used for developing production-ready apps.
 
+- `Index.js` is used to render the `App` component into the root element.
 
-/home/leviscoffie/Documents/1-first-steps-in-react/1 - First Steps in React/2 - Add React to a Project/scoreboard
+
+##### Modulating Function Components 
+- ES modules is a feature in JavaScript that lets you break up your code into individual JavaScript files. Modules provide a better way to organize and maintain your code, as well as provide scope for your variables, functions, and classes.
+
+- Each module has its own scope so do the necessary imports.
