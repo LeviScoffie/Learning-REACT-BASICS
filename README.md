@@ -301,3 +301,46 @@ A controlled component is a component that renders a form element whose value is
 - We used the state Hook to add value to the AddPlayerForm.
 
 - The event handler is a func. that takes as a parameter the value state, it then uses the spread operator  to add a new playerto the player state  without modifying the original players.
+
+
+#### Stateful Components and the Effect Hook Roadmap
+---
+-we'll build the stopwatch component! We'll cover working with React's useEffect hook and learn to use conditional rendering to update your UI based on the current state. 
+
+- Allows users to start, stop, and reset the time. Create a button to start and stop the timer. If the time is stopped and started again it should continue from where it left off.
+
+- Buildthe stopwatch components and its elements. Use a ternary operator. Create a state that is `true` when its running and `false` when its not.
+
+-Fetching data from an API, setting up a timer, manipulating the DOM ~_useEffects_~ hooks is used.
+
+- Lets u execute an arbitrary function which it calls side effect inside your func. components. The Stop Watch functionality is the **side effect**.
+
+- When the user clicks the start button, the effect hook will run our side effect that will create a timer to continually add a value 1 to our stopwatch time every second. and vice versa.
+
+
+### Designing the StopWatch
+-A stateful component that counts seconds and allows users to start, stop and reset the time.
+
+- This is a component state rather than an application satte.
+
+- The stopwatch will have 2 main states visible to the user, it will either be in a running state or a stopped state. The buttons on the interface should change based on the running state. E.g **STOP**  changing to **START** and vice versa. Conditional rendering.
+
+#### Updating the Stopwatch State Using the Effect Hook
+- Use the useEffect() Hook to make the stopwatch tick. React's built-in useEffect Hook lets you perform side effects, like fetching data or, in our case, setting a timer. The useEffect Hook method also helps you handle unmounting of components which can help prevent memory leaks in your application. 
+
+- By default the func. we provide to useEffect will run after every completed render. 
+
+- As long as the `isRunning` state is true, the `setElapsedTime` will be running continuously. So to update state over and over again we use the _Effect Hook_. We want a side effect to run after React has updated the DOM.
+
+- `useEffect()` 2 args;, a func also known as a side effect and a dependecy array. The function runs after every completed render by default. 
+
+When state changesm React renders all the child components again. You can control when the side effect runs by passing an array of dependecies as the second argument. 
+
+- When we provide a second argument to useEffect Hook, the side effect will only runif the prop or state in the dependecies array changes.
+
+- For the Stopwatch component we only want the timer to run when isRunning is true and stop whn isRunning is false. side effect is dependent on `isRunning` state.
+
+
+- setInterval() method is JS method that excutes code repeatedly after a delayed time interval.
+
+-`clearInterval()` - cancels any timed repeating actions created by calling setInterval. Takes in the interval ID to clear
