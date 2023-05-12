@@ -18,7 +18,7 @@ const Stopwatch = () => {
         }
         return () => {
             clearInterval(id);
-            console.log('clean');
+
         }
     },[isRunning]);
   

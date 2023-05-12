@@ -344,3 +344,23 @@ When state changesm React renders all the child components again. You can contro
 - setInterval() method is JS method that excutes code repeatedly after a delayed time interval.
 
 -`clearInterval()` - cancels any timed repeating actions created by calling setInterval. Takes in the interval ID to clear
+
+
+##### REACT MEMO
+
+
+##### DESTRUCTURING 
+
+
+##### Use Ref Hooks 
+- To modify what a React component or element displays on the screen, you can use state and props. You trigger a state change and re-render the component with new props.
+- If its a component with local state , or it a controlled component , you will re-render it with every update in state.
+- There may be times when you need to target and modify an element outisde of that typical data flow.
+- Refs let you access and interact with the DOM nodes or REACT elements created in the return statement.
+- Access form elements and get their values, update the value of an input field using state by creating a controlled component/ component with internally controlled state.
+- We created  a value state and the wired the input fields to the func. using the `onChange` event.
+- If you are buidling a form that doesnt require internal state you can use the `ref` attribute instead of calling onChange for every state update. 
+
+- Creat a ref that will access the player text field. 
+- Attach the useRef to the React att ref.
+- Puts a reference yo the input on the AddPlayerForm function, when the input is rendered onto the page, it returns the reference which you can acces with playerInput.
