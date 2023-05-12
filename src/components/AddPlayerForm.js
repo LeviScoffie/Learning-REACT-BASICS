@@ -1,6 +1,6 @@
 import {React,  useState } from 'react';
 
-// Logic --> creates a state that is empty.
+// Logic --> creates a state that is empty. Also called Local State.
 const AddPlayerForm = (props) => {
     const [value, setValue] = useState('');
 

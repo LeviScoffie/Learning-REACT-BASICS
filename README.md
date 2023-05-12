@@ -290,3 +290,14 @@ These funcs help you communicate events and changes to your data, upwards while 
 
 
 - Remember in the `handleSubmit` we are passing info to a function via a prop named addPlayer
+
+- A controlled component renders a form element whose value is not controlled by React, with state
+
+
+A controlled component is a component that renders a form element whose value is controlled by React. That is the `AddPlayerForm` component that renders a form element that allows users to add a new player to the scoreboard. 
+
+- This is a controlled compnent because the value entered in the text field is controlled by React through a state that we named value.
+
+- We used the state Hook to add value to the AddPlayerForm.
+
+- The event handler is a func. that takes as a parameter the value state, it then uses the spread operator  to add a new playerto the player state  without modifying the original players.
