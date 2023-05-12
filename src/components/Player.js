@@ -12,6 +12,7 @@ const Player = (props) => {
         <Counter 
         score ={props.score} 
         id ={props.id}
+        //This is later passed down as a prop to the Counter Component where it it called and effect the change on click
         changeScore= {props.changeScore}
         />
       </div>
