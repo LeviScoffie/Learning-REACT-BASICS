@@ -209,3 +209,22 @@ In React, state is never modified directly. The only way React allows you to upd
 - Inside the Player component a delete button is going to trigger the change in the player state. 
 
 - In the stateless function Player component we handle the event onClick for removing the players by passing an arrow function that returns a call to the function passed through props from the parent App component with `props.removePlayer()`, pass id to the function so that it know which player to remove on click. The id is also passed as a prop.
+
+
+## REACT UPDATE 
+- This course focuses on teaching you React components using React Hooks. In this course we'll go over the scoreboard app you built in the React Basics course and update it to use React Hooks! 
+
+- Hooks is a way to make functional components stateful.So lets change a stateful class component into a stateful fuctional component. 
+
+- Remember `render()` methods are only used in class components. 
+
+- `React.useState()` is a new way to use the same capabilities of the class compo. that was `this.state` was providing. Use state accepts the initial value.
+
+- It returns as pair: ie. , the current state and the function to update it. 
+
+- the `[score]` var has the same capabilities as `this.state.score`.
+- And `setScore` has the same capabilities as `this.setState` in earlier versions.
+- The `useState` hook returns a func. that is the `setScore` which is called to updated the state as it is. 
+- You can only call **Hooks** as the top-level and only call hooks from React funcs.
+
+- `setScore()` can take in a value of a function.

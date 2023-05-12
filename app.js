@@ -34,100 +34,94 @@ const Player = (props) => {
 }
 
 
-class Counter extends React.Component {
+const Counter = () => {
+    const [score, setScore] = React.useState(0);
+    // state = {
+    //         score: 0
+    //     };
+    
+    
+    const incrementScore =() => {
+        setScore(prevScore => prevScore + 1);
+        // this.setState( prevState =>({
+        //     score: prevState.score +1
+        // }));
+    }
 
-    constructor() {
-        super() 
-        this.state = {
-            score: 0
-        };
+    const decrementScore =() => {
+        setScore(prevScore => prevScore -1);
+        // this.setState( prevState =>({
+        //         score: prevState.score -1
+        // }));
     }
     
-    incrementScore =() => {
-        
-        this.setState( prevState =>({
-            score: prevState.score +1
-        }));
-    }
-
-    decrementScore =() => {
-        
-        this.setState( prevState =>{
-            return{
-                score: prevState.score -1
-            };
-
-        });
-    }
-    
-    render() {
+  
        
-        return (
-            <div className="counter">
-            <button className= "counter-action decrement"  onClick ={this.decrementScore}> - </button>
-            <span className="counter-score">{this.state.score}</span>
-            <button className= "counter-action increment" onClick ={this.incrementScore}> + </button>
-        </div>
-        );
+    return (
+        <div className="counter">
+        <button className= "counter-action decrement"  onClick ={()=>decrementScore()}> - </button>
+        <span className="counter-score">{ score }</span>
+        <button className= "counter-action increment" onClick ={()=>incrementScore()}> + </button>
+    </div>
+    );
     } 
-}
 
 
-class App extends React.Component {
 
-    state = {
-        players: [
-            {
-                name: "Scoffie",
-                id:1
-              },
-              {
-                name: "Treasure",
-                id:2
-              },
-              {
-                name: "Nancy",
-                id:3
-              },
-              {
-                name: "James",
-                id:4
-              }
-        ]
-    };
-
-    handleRemovePlayer = (id) => {
-        this.setState( prevState =>{
-            return {
-                players:  prevState.players.filter(p => p.id !== id)
-            }
-        });
-
-    }
-
-    render() {
-        return (
-            <div className="scoreboard">
-                <Header title="ScoreBoard" totalPlayers ={this.state.players.length} />
-                {/*Player's List*/}
-                {this.state.players.map( player =>
-                    <Player 
-                    name={player.name}
-                    id = {player.id}
-                    key ={player.id.toString()}
-                    removePlayer = {this.handleRemovePlayer}
-                     />
+const App = () => {
+    const [players, setPlayers] = React.useState([{
+        name: "Scoffie",
+        id:1
+      },
+      {
+        name: "Treasure",
+        id:2
+      },
+      {
+        name: "Nancy",
+        id:3
+      },
+      {
+        name: "James",
+        id:4
+      }
+    ]);
     
-                )}
-                
-            </div>
-        );
+    const handleRemovePlayer = (id) => {
+        setPlayers( prevPlayers = prevPlayers.filter(p => p.id !== id))
     }
-}
-    
    
+    
+
+
+    return (
+        <div className="scoreboard">
+            <Header title="ScoreBoard"
+             totalPlayers ={players.length}
+              />
+            {/*Player's List*/}
+            {players.map( player =>
+                <Player 
+                name={player.name}
+                id = {player.id}
+                key ={player.id.toString()}
+                removePlayer = {handleRemovePlayer}
+                    />
+
+            )}
+            
+        </div>
+    );
+    }
+
+    
+
+
+const root = ReactDOM.createRoot(document.getElementById('root')) 
+
+root.render(<App />);
  
-ReactDOM.render(
-    <App  />,
-    document.getElementById('root')
-)
+// ReactDOM.render(
+//     <App  />,
+//     document.getElementById('root')
+// )
