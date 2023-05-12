@@ -243,3 +243,24 @@ In React, state is never modified directly. The only way React allows you to upd
 - ES modules is a feature in JavaScript that lets you break up your code into individual JavaScript files. Modules provide a better way to organize and maintain your code, as well as provide scope for your variables, functions, and classes.
 
 - Each module has its own scope so do the necessary imports.
+
+
+#### Data Flow RoadMap 
+- To store data, we created a state; if any other child component needs access to that state we pass it down using props. From `Parent` components to `Child` components via **props**.
+
+- We can now lift state up. When two or more components need access to the same state, we'll lift the state up to a shared parent component so that they both have acces to that state.
+
+- For example `Header` component displays the _title_ and _total number of players_. We could add a stat component that displays the number of players and the total score; therefore the stat component needs access to the score state. 
+
+- Learn how to communicate bewteen components. So the score state lifted up to the App component, the counter needs a way to tell the parent component that the score needs to change. 
+
+- To communicate data from a child to a parent we can pass functions as props.
+- So in the `App` component we'll create a `handleScore()` func. that will change the state. we'll pass the func down to `Counter` as a prop. So when the `+` or `-` button is clicked a state change is invoked at the App component level.
+
+- When two or more components need access to the same state, we move the state into their common parent. This is called "lifting state up".
+
+- we'll refactor the Counter's event handlers, and implement new props in the Player and Counter components that will act as callback functions.
+- Counter needs to update a state that lives way above it which is the `App` component. 
+- The Parent passes down  a callback function  as a prop. 
+
+These funcs help you communicate events and changes to your data, upwards while data contnues to flow downwards.
