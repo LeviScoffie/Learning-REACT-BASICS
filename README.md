@@ -264,3 +264,29 @@ In React, state is never modified directly. The only way React allows you to upd
 - The Parent passes down  a callback function  as a prop. 
 
 These funcs help you communicate events and changes to your data, upwards while data contnues to flow downwards.
+
+
+### Managing State Roadmap 
+
+- With the state lifted up to the top of the application, we can pass it down to any component. In this stage, you will pass state to multiple components, add items to the state and update the state based on the previous state 
+
+- A control component is a componet that renders a form element who's value is controlled by react with state.
+- So an `AddPlayerForm ` component will render a form element with a text field to enter the new players's name and a submit button to submit the form. 
+
+- We'll write event handlers to add the new player to the existing player state using the spread operator. 
+
+- The spread operator allows us to update the state without modifying the existing state.
+
+- We lifted the score state up to the top of the application. Now we can pass that state down to any component. We'll build a statistics component that displays the total number of players on the Scoreboard, as well as the total number of points.
+
+- To let users add players to the Scoreboard! First, we'll create an event handler that allows users to submit the form. Then we'll write a function that adds the new player to state and displays it in the UI. 
+
+- **Local State** means that it is just state that is needed for the component to do its job,and no other components have access to it. 
+
+- In order to add players to the state, `AddPlayerForm` needs to access to the players state so that it can update it with the new player. U can use callback func. to send data to an ancestor from chilsd.
+- the function will be called inside an event handler and it will pass a new player name up to the App Component when the form submits.
+
+- To prevent an event default behaviour we use its method called `preventDefault`. If we don't do this, it will result in the browser posting a request back to the server that will cause application to reload in the browser, which means we will lose all of our application satte in the process. 
+
+
+- Remember in the `handleSubmit` we are passing info to a function via a prop named addPlayer

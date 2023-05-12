@@ -1,11 +1,13 @@
-import React from "react";
+import {React} from "react";
 import Header from './Header';
 
 import Player from "./Player";
+import AddPlayerForm from "./AddPlayerForm";
 
 
 
 const App = () => {
+  
   const [players, setPlayers] = React.useState([
     {
       name: "Scoffie",
@@ -29,9 +31,13 @@ const App = () => {
     }
   ]);
 
+      // for generating unique ID
+  const [nextPlayerId, setNextPlayerId] = React.useState(5);
+
   const handleRemovePlayer = (id) => {
     setPlayers(prevPlayers => prevPlayers.filter(p => p.id !== id));
   }
+
 
   const handleScoreChange = (id, delta) => {
     setPlayers(prevPlayers => prevPlayers.map(player =>{
@@ -43,17 +49,28 @@ const App = () => {
         }
       }
       return player;
-    }
-
-    ) );
+    }));
 
   }
+
+  const handleAddPlayer = (name) =>{
+    setPlayers(prevPlayers=> [
+      ...prevPlayers,
+    {
+      name: name,
+      score: 0, 
+      id: nextPlayerId
+    }
+    ]);
+  setNextPlayerId(prevId=> prevId +1);
+  }
+
 
   return (
     <div className="scoreboard">
       <Header
         title="Scoreboard"
-        totalPlayers={players.length}
+        players={players} // array defined in the stateful func. above to depict current state
       />
 
       {/* Players list */}
@@ -66,7 +83,11 @@ const App = () => {
           removePlayer={handleRemovePlayer}
           changeScore = {handleScoreChange}
         />
-      )}
+      )};
+        <AddPlayerForm 
+        addPlayer= {handleAddPlayer} 
+        />
+
     </div>
   );
 
